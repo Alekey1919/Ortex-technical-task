@@ -1,0 +1,41 @@
+.exchange-rate {
+  position: fixed;
+  top: 10px;
+  font-size: 1.2rem;
+
+  div {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    color: $text;
+
+    span {
+      font-weight: bold;
+      color: $primary;
+      font-size: 0.9rem;
+      display: block;
+    }
+
+    p {
+      width: 33%;
+      text-align: center;
+    }
+  }
+
+  .time-stamp {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-height: 700px) and (orientation: landscape) {
+  .login {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .exchange-rate {
+    position: relative;
+  }
+}

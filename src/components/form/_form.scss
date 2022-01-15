@@ -1,0 +1,95 @@
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  background-color: #0f181bbb;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 10px;
+
+  img {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  &-field,
+  &-btn {
+    margin: 10px 0;
+    width: 90%;
+    padding: 10px;
+    font-size: 1rem;
+    color: $text;
+  }
+
+  &-field {
+    display: flex;
+    border: 1px solid $primary;
+    border-radius: 5px;
+
+    i {
+      color: $primary;
+      margin: 0 10px;
+    }
+
+    input {
+      width: 100%;
+      background: none;
+      border: none;
+      color: $text;
+      margin: 0 10px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &-btn {
+    @include btn;
+  }
+
+  &-reset-password {
+    background: none;
+    color: $primary;
+    margin: 10px 0;
+    border: none;
+
+    &:hover {
+      color: darken($primary, 10);
+    }
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+
+  &.active {
+    display: flex;
+  }
+
+  .modal-body {
+    background: #0b1011bb;
+    width: 400px;
+    height: 500px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      @include btn;
+    }
+  }
+}

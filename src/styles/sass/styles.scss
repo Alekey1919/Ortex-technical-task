@@ -1,0 +1,14 @@
+@import "./config";
+@import "../../pages/login/login";
+@import "../../components/form/form";
+@import "../../components/exchangeRate/exchangeRate";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $text;
+  &::selection {
+    background: $primary;
+  }
+}

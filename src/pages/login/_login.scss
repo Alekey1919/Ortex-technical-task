@@ -1,0 +1,8 @@
+.login {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, darken($secondary, 5), $secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
