@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { w3cwebsocket } from "websocket";
 
 const useExchangeRate = () => {
-  // The states are set to an initial value because the websocket sometimes doesn't return the data. However, the onmessage function takes care of setting the states to the real values once the ws does return the data.
-  const [usdExchangeRate, setUsdExchangeRate] = useState(1.1424);
-  const [timeStamp, setTimeStamp] = useState("15:55:23");
+  const [usdExchangeRate, setUsdExchangeRate] = useState();
+  const [timeStamp, setTimeStamp] = useState();
 
   const client = new w3cwebsocket(
     "ws://stream.tradingeconomics.com/?client=guest:guest"
@@ -22,11 +21,13 @@ const useExchangeRate = () => {
       const { price, dt } = data;
       if (price) {
         // Checking if the message contained the data or was a keepalive message.
-        setUsdExchangeRate(price.toFixed(4));
+        setUsdExchangeRate(price);
 
-        let date = new Date(dt * 1000);
+        let date = new Date(dt);
         setTimeStamp(
-          `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+          `${date.getHours() < 10 ? "0" : "" + date.getHours()}:${
+            date.getMinutes() < 10 ? "0" : "" + date.getMinutes()
+          }:${date.getSeconds() < 10 ? "0" : "" + date.getSeconds()}`
         );
       }
     };
