@@ -25,9 +25,9 @@ const useExchangeRate = () => {
 
         let date = new Date(dt);
         setTimeStamp(
-          `${date.getHours() < 10 ? "0" : "" + date.getHours()}:${
-            date.getMinutes() < 10 ? "0" : "" + date.getMinutes()
-          }:${date.getSeconds() < 10 ? "0" : "" + date.getSeconds()}`
+          `${String(date.getHours()).padStart(2, "0")}:${String(
+            date.getMinutes()
+          ).padStart(2, "0")}:${String(date.getSeconds()).padStart(2, "0")}`
         );
       }
     };
